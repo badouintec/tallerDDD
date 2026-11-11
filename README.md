@@ -1,8 +1,24 @@
 # TALLERDDD · Data Driven Day 2026
 
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![Sin frameworks](https://img.shields.io/badge/frameworks-ninguno-success)](docs/GUIA.md#0-antes-de-empezar-qué-es-una-página-web)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](docs/GUIA.md#6-publicar-en-cloudflare)
+[![Google Colab](https://img.shields.io/badge/Ejercicio%201-Google%20Colab-F9AB00?logo=googlecolab&logoColor=white)](ejercicio_1/README.md)
+[![Python](https://img.shields.io/badge/Ejercicio%201-Python-3776AB?logo=python&logoColor=white)](ejercicio_1/README.md)
+[![Ponytail](https://img.shields.io/badge/Ponytail-instalado-1e3a5f)](docs/GUIA.md#71-ponytail-que-la-ia-escriba-menos-y-mejor)
+[![Graphify](https://img.shields.io/badge/Graphify-mapa%20del%20código-7aa7e6)](docs/GUIA.md#72-graphify-el-mapa-de-tu-código)
+[![Nivel](https://img.shields.io/badge/nivel-principiante-brightgreen)](docs/GUIA.md)
+[![Último commit](https://img.shields.io/github/last-commit/badouintec/tallerDDD)](https://github.com/badouintec/tallerDDD/commits/main)
+
 **Tu carrera a prueba de futuro con IA · Tecnológico de Monterrey, Campus Sonora Norte · 11 de noviembre de 2026**
 
 Dos ejercicios que forman un solo proyecto: **investigar oportunidades profesionales con datos** (Ejercicio 1) y **convertir esa hipótesis en un sitio profesional propio** (Ejercicio 2). El sitio de ejemplo es de Mateo Duarte, un personaje de demostración que cada estudiante sustituye por su propia información.
+
+![Portada del sitio de ejemplo](docs/img/01-portada.jpg)
+
+> 📘 **¿Primera vez con HTML, CSS o JavaScript?** Lee la **[Guía del sitio, paso a paso](docs/GUIA.md)**: explica cada archivo y cada sección de la página con capturas y el código real.
 
 ```mermaid
 flowchart LR
@@ -29,10 +45,15 @@ TALLERDDD/
 ├── _headers            # Cabeceras de seguridad para Cloudflare
 ├── .assetsignore       # Lo que Cloudflare NO publica (ejercicio_1/, README, etc.)
 ├── wrangler.jsonc      # Configuración de Cloudflare (nombre del proyecto)
-├── ejercicio_1/        # Análisis de carrera en Colab (no se publica)
-├── README.md
-└── AGENTS.md           # Reglas para agentes de IA
+├── .gitignore          # Lo que Git NO sube (.DS_Store, .venv/, graphify-out/)
+├── .github/copilot-instructions.md  # Reglas Ponytail para Copilot
+├── AGENTS.md           # Reglas para agentes de IA (incluye Ponytail)
+├── README.md           # Este archivo
+├── docs/               # Guía paso a paso y capturas (no se publica)
+└── ejercicio_1/        # Análisis de carrera en Colab (no se publica)
 ```
+
+La explicación de **cada archivo** está en la [guía, sección 1](docs/GUIA.md#1-mapa-de-todos-los-archivos).
 
 ## Cómo obtener el proyecto
 
@@ -159,7 +180,9 @@ Primero cambia `"name"` en `wrangler.jsonc` por tu nombre de proyecto (por ejemp
 
 Cada `git push` a `main` publica el sitio en `tu-nombre.<subdominio>.workers.dev`.
 
-Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ejercicio_1/`, `README.md`, `AGENTS.md`, `wrangler.jsonc` y archivos ocultos. Si agregas carpetas privadas, añádelas ahí.
+Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ejercicio_1/`, `docs/`, `README.md`, `AGENTS.md`, `wrangler.jsonc` y archivos ocultos. Si agregas carpetas privadas, añádelas ahí.
+
+Capturas de cada pantalla de Cloudflare: [guía, sección 6](docs/GUIA.md#6-publicar-en-cloudflare).
 
 ## Herramientas del taller
 
@@ -167,8 +190,8 @@ Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ej
 | --- | --- |
 | **HTML/CSS/JS sin frameworks** | Sitio ligero que cualquier navegador abre tal cual |
 | **`AGENTS.md`** | Reglas para agentes de IA; pídele al agente que lo lea si no lo hace solo |
-| **[Ponytail](https://ponytail.dev/)** | Principios de simplicidad y cambios mínimos (integrados en `AGENTS.md`) |
-| **[Graphify](https://marketplace.visualstudio.com/items?itemName=anytechiestudio.graphify-vscode)** | Ver relaciones entre archivos (`Graphify: Build Knowledge Graph`) |
+| **[Ponytail](https://ponytail.dev/)** | Reglas para que la IA haga el cambio más pequeño que funcione. **Ya instalado** en `AGENTS.md` y `.github/copilot-instructions.md`. [Ver guía](docs/GUIA.md#71-ponytail-que-la-ia-escriba-menos-y-mejor) |
+| **[Graphify](https://marketplace.visualstudio.com/items?itemName=anytechiestudio.graphify-vscode)** | Mapa de cómo se conecta el código. Extensión de VS Code + `pip install anytechie-graphify`. [Ver guía y advertencias](docs/GUIA.md#72-graphify-el-mapa-de-tu-código) |
 | **[Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)** | Leer este README con los diagramas renderizados |
 | **[Context7 MCP](https://github.com/upstash/context7-vscode-extension)** | Documentación actualizada para el agente |
 | **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** | Hospedaje gratuito del sitio estático, con despliegue desde Git |
