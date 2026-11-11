@@ -4,4 +4,4 @@
 .wrangler/
 .venv/
 __pycache__/
-graphify-out/
+graphify-out/cache/

@@ -45,7 +45,8 @@ TALLERDDD/
 ├── _headers            # Cabeceras de seguridad para Cloudflare
 ├── .assetsignore       # Lo que Cloudflare NO publica (ejercicio_1/, README, etc.)
 ├── wrangler.jsonc      # Configuración de Cloudflare (nombre del proyecto)
-├── .gitignore          # Lo que Git NO sube (.DS_Store, .venv/, graphify-out/)
+├── .gitignore          # Lo que Git NO sube (.DS_Store, .venv/)
+├── graphify-out/       # Mapa del código generado con Graphify (no se publica)
 ├── .github/copilot-instructions.md  # Reglas Ponytail para Copilot
 ├── AGENTS.md           # Reglas para agentes de IA (incluye Ponytail)
 ├── README.md           # Este archivo

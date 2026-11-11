@@ -70,6 +70,7 @@ tallerDDD/
 ├── .gitignore                  ← lo que Git NO guarda
 ├── .github/
 │   └── copilot-instructions.md ← reglas Ponytail para Copilot
+├── graphify-out/               ← mapa del código (Graphify)
 ├── AGENTS.md                   ← reglas para agentes de IA
 ├── README.md                   ← portada del repositorio
 ├── docs/                       ← esta guía y sus capturas
@@ -98,7 +99,8 @@ tallerDDD/
 | --- | --- |
 | `.assetsignore` | Lista de lo que Cloudflare **no** debe publicar: `ejercicio_1/`, `docs/`, `README.md`, archivos ocultos… Funciona como `.gitignore`. |
 | `wrangler.jsonc` | Configuración de Cloudflare. Lo único que cambias es `"name"`, que debe ser igual al nombre del proyecto en Cloudflare. |
-| `.gitignore` | Lista de lo que Git no sube a GitHub: archivos del sistema (`.DS_Store`), `.venv/` y `graphify-out/` |
+| `.gitignore` | Lista de lo que Git no sube a GitHub: archivos del sistema (`.DS_Store`), el entorno de Python `.venv/` y la caché de Graphify |
+| `graphify-out/` | El mapa del código que generó Graphify: `graph.html` (interactivo), `GRAPH_REPORT.md` (resumen) y `wiki/`. Ver [sección 7.2](#72-graphify-el-mapa-de-tu-código) |
 | `.github/copilot-instructions.md` | Reglas de [Ponytail](https://ponytail.dev/) para GitHub Copilot en VS Code (ver [sección 7](#7-herramientas-ponytail-y-graphify)) |
 | `AGENTS.md` | Reglas para cualquier agente de IA (Claude, Codex, Copilot…): qué puede y qué no puede hacer en este proyecto |
 | `README.md` | La portada del repositorio en GitHub |
@@ -608,12 +610,38 @@ En este proyecto el mapa es pequeño: muestra `main.js` y las funciones del scri
 - **Desde VS Code:** clic derecho sobre la carpeta del proyecto → **Graphify: Build Knowledge Graph**. Después: **Graphify: Open Interactive Visualizer**.
 - **Desde la terminal:** `./.venv/bin/graphify update .`
 
-El resultado se guarda en `graphify-out/` (no se sube a GitHub ni se publica). Ahí está `graph.html`, el mapa interactivo, y `GRAPH_REPORT.md`, un resumen en texto.
+El resultado se guarda en `graphify-out/`. Este repositorio ya incluye uno de ejemplo:
+
+| Archivo | Qué es |
+| --- | --- |
+| `graph.html` | El mapa interactivo. Ábrelo en tu navegador (doble clic) o con **Graphify: Open Interactive Visualizer** |
+| `GRAPH_REPORT.md` | Resumen en texto: nodos más conectados, grupos y huecos |
+| `graph.json` | Los datos del grafo; lo usan los comandos `graphify query` y `graphify explain` |
+| `wiki/` | Una ficha en Markdown por cada nodo |
+
+`graphify-out/` se sube a GitHub como ejemplo, pero **no se publica** en el sitio (está en `.assetsignore`). Su subcarpeta `cache/` no se sube: Graphify la regenera.
+
+Prueba hacerle preguntas al grafo desde la terminal:
+
+```bash
+./.venv/bin/graphify query "main"    # qué funciones hay en main.js y en qué línea
+```
+
+Responde algo así:
+
+```text
+NODE main.js [src=assets/js/main.js loc=L1 community=0]
+NODE toggle [src=assets/js/main.js loc=L11 community=0]
+NODE year [src=assets/js/main.js loc=L36 community=0]
+```
+
+> En la versión 0.4.41, los comandos `graphify explain` y `graphify path` fallan con un error del propio paquete (`UnboundLocalError`). Usa `query` o el visualizador.
 
 > **⚠️ Dos advertencias importantes**
 >
 > 1. **Envía datos a un servicio externo.** Para ponerle nombre a cada grupo del mapa, Graphify manda los **nombres** de tus funciones y variables a un servicio de IA gratuito (Pollinations). No manda el código completo, pero no lo uses con proyectos privados o confidenciales.
-> 2. **La IA se equivoca.** En este proyecto, Graphify describió `main.js` como *"un componente de calendario"*. Es falso: `main.js` controla el menú, el botón de imprimir y el año del pie. **Siempre verifica** lo que te diga una IA contra el código real.
+> 2. **La IA se equivoca.** En este proyecto, Graphify describió `main.js` como *"un componente de calendario"* (lo puedes ver en `graphify-out/GRAPH_REPORT.md`). Es falso: `main.js` controla el menú, el botón de imprimir y el año del pie. **Siempre verifica** lo que te diga una IA contra el código real.
+> 3. **Guarda rutas de tu computadora.** Los archivos generados incluyen rutas como `/Users/tu-usuario/...`. Antes de subir tu `graphify-out/` a un repositorio público, revísalos con **Buscar** (`Ctrl+Shift+F`) y quita tu nombre de usuario. En el de este repo ya se quitaron.
 
 ---
 

@@ -1,0 +1,36 @@
+{
+  "hotspots": [
+    {
+      "label": "csv_de()",
+      "risk": 0.85,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "main.js",
+      "risk": 0.65,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "Career_Intelligence_Sonora_2026.py",
+      "risk": 0.6,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "lista()",
+      "risk": 0.6,
+      "type": "FUNCTION"
+    },
+    {
+      "label": "afinidad()",
+      "risk": 0.6,
+      "type": "FUNCTION"
+    }
+  ],
+  "blast_radius": {
+    "lista()": 2,
+    "afinidad()": 2,
+    "toggle": 1,
+    "nav": 1,
+    "open": 1
+  }
+}
