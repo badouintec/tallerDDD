@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+
+  <!-- SEO · INDEXACIÓN: "noindex" evita que Google publique este ejemplo.
+       Quítalo solo cuando todo el contenido sea tuyo y verdadero (ver README). -->
+  <meta name="robots" content="noindex,nofollow">
+
+  <!-- SEO · BUSCADORES: el título y la descripción son lo que aparece en Google. -->
+  <title>Mateo Duarte · Ingeniería Mecatrónica, robótica y visión artificial</title>
+  <meta name="description" content="Estudiante de Ingeniería Mecatrónica en Hermosillo. Proyectos con Arduino, Python y visión artificial. Busco prácticas profesionales para 2027.">
+  <!-- URL oficial de la página. build.py cambia el dominio de ejemplo por el tuyo. -->
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- SEO · REDES: vista previa al compartir el enlace en WhatsApp, LinkedIn, etc. -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:title" content="Mateo Duarte · Software y mundo físico">
+  <meta property="og:description" content="Mecatrónica · Visión artificial · Arduino · Prototipos · Prácticas 2027.">
+  <meta property="og:image" content="https://example.com/assets/img/citrusvision-1200.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Recursos propios: ícono, estilos y JavaScript (carpeta assets/). -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- SEO · DATOS ESTRUCTURADOS: le dicen a Google quién eres. Solo datos verificables. -->
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mateo Duarte Armenta",
+    "url": "https://example.com/",
+    "description": "Estudiante de Ingeniería Mecatrónica interesado en visión artificial, sistemas embebidos y automatización.",
+    "knowsAbout": ["Mecatrónica", "Arduino", "Visión artificial", "Automatización"],
+    "homeLocation": { "@type": "Place", "name": "Hermosillo, Sonora, México" }
+  }</script>
+</head>
+<body>
+<!-- Accesibilidad: aparece al presionar Tab y salta directo al contenido. -->
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- ENCABEZADO: logotipo y menú. En celular el menú se abre con el botón (assets/js/main.js). -->
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="#inicio" aria-label="Mateo Duarte, volver al inicio"><span class="brand-mark">MD</span> Mateo Duarte</a>
+    <button class="nav-toggle" type="button" data-menu-toggle aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">Menú ☰</button>
+    <nav class="nav" id="navegacion" data-nav aria-label="Navegación principal">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#rumbo">Rumbo</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#blog">Blog</a>
+      <a href="#cv">CV</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- PORTADA: quién eres en una frase, qué buscas y tu foto.
+       srcset permite que el navegador descargue solo el tamaño de foto que necesita. -->
+  <section class="hero container" id="inicio">
+    <div class="hero-text">
+      <p class="status"><span class="dot" aria-hidden="true"></span> Disponible para prácticas profesionales 2027</p>
+      <h1>Construyo sistemas que conectan software y mundo físico.</h1>
+      <p class="lead">Soy <strong>Mateo Duarte</strong>, estudiante de Ingeniería Mecatrónica en Hermosillo. Trabajo con visión por computadora, sensores y automatización para resolver procesos reales.</p>
+      <div class="actions">
+        <a href="#proyectos" class="btn">Ver proyectos</a>
+        <a href="#cv" class="btn btn-alt">Ver CV</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Ubicación</dt><dd>Hermosillo, Sonora</dd></div>
+        <div><dt>Carrera</dt><dd>Mecatrónica · 2027</dd></div>
+        <div><dt>Enfoque</dt><dd>Visión artificial</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-figure">
+      <img src="assets/img/mateo-900.webp"
+           srcset="assets/img/mateo-440.webp 440w, assets/img/mateo-900.webp 900w, assets/img/mateo-1300.webp 1300w"
+           sizes="(max-width: 720px) 100vw, 42vw"
+           width="900" height="1125" fetchpriority="high" decoding="async"
+           alt="Mateo Duarte en un laboratorio de robótica">
+      <a class="hero-badge" href="#proyectos"><span>Proyecto actual</span> CitrusVision →</a>
+    </figure>
+  </section>
+
+  <!-- SOBRE MÍ: qué te mueve, en qué áreas te enfocas y qué estás aprendiendo ahora. -->
+  <section class="section" id="sobre-mi">
+    <div class="container split">
+      <div>
+        <p class="section-label">Sobre mí</p>
+        <h2>Curiosidad técnica aplicada a problemas reales.</h2>
+        <p class="intro">Me interesa convertir ideas en sistemas físicos: una cámara que interpreta su entorno, un mecanismo que responde a datos o una línea de producción que inspecciona mejor.</p>
+        <p>En la carrera descubrí mi interés por la visión artificial, los sistemas embebidos y la automatización industrial. Quiero aprender junto a equipos de ingeniería que trabajan en manufactura avanzada.</p>
+        <p>Prefiero mostrar lo que estoy construyendo, lo que sé explicar y lo que aún necesito aprender.</p>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h3 class="panel-title">Áreas de enfoque</h3>
+          <ul class="rows">
+            <li>Visión artificial <span>Python · OpenCV</span></li>
+            <li>Sistemas físicos <span>Arduino · sensores</span></li>
+            <li>Automatización <span>Actuadores · control</span></li>
+            <li>Manufactura avanzada <span>Calidad · procesos</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title">Herramientas</h3>
+          <ul class="chips">
+            <li>Python</li><li>Arduino</li><li>OpenCV</li><li>Sensores</li><li>CAD</li><li>Impresión 3D</li><li>Git</li>
+          </ul>
+        </div>
+        <div class="panel panel-soft">
+          <h3 class="panel-title">Aprendiendo ahora</h3>
+          <ul class="rows">
+            <li><a href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener noreferrer">Harvard CS50x</a> <span>En curso</span></li>
+            <li><a href="https://cs50.harvard.edu/python/" target="_blank" rel="noopener noreferrer">CS50 Python</a> <span>Siguiente</span></li>
+            <li><em>Designing Machine Learning Systems</em> <span>Lectura</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUMBO: aquí llega el resultado del Ejercicio 1 (el plan que descarga el notebook).
+       Los cuatro campos son los mismos de la sección "Mi decisión" de ese plan. -->
+  <section class="section section-band" id="rumbo">
+    <div class="container">
+      <p class="section-label">Rumbo</p>
+      <h2>Hacia dónde voy y por qué.</h2>
+      <div class="compass">
+        <article class="compass-main">
+          <p class="meta">Mi hipótesis</p>
+          <p>Enfocar mi formación en <strong>automatización y calidad para la manufactura de Sonora</strong>, combinando visión artificial con control de procesos.</p>
+        </article>
+        <article class="compass-item">
+          <p class="meta">Evidencia</p>
+          <p>La manufactura pesa 1.18 veces más en el empleo de Sonora que en el de México (INEGI, Censos Económicos, 2023).</p>
+        </article>
+        <article class="compass-item">
+          <p class="meta">Lo que la limita</p>
+          <p>Revisé solo 13 vacantes de Hermosillo: ninguna publica 0 años de experiencia. Necesito prácticas y proyectos que cuenten como experiencia.</p>
+        </article>
+        <article class="compass-item">
+          <p class="meta">Próximos 30 días</p>
+          <p>Medir CitrusVision con imágenes reales y conversar con dos ingenieros de calidad en Hermosillo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS: un proyecto destacado con enlace a su artículo + líneas de exploración. -->
+  <section class="section" id="proyectos">
+    <div class="container">
+      <p class="section-label">Proyectos</p>
+      <h2>Aprender construyendo.</h2>
+      <article class="feature">
+        <img src="assets/img/citrusvision-1200.webp"
+             srcset="assets/img/citrusvision-680.webp 680w, assets/img/citrusvision-1200.webp 1200w, assets/img/citrusvision-1600.webp 1600w"
+             sizes="(max-width: 720px) 100vw, 55vw"
+             width="1200" height="900" loading="lazy" decoding="async"
+             alt="Prototipo CitrusVision: cámara, banda con naranjas, garra robótica y computadora con análisis visual">
+        <div class="feature-body">
+          <p class="meta">Proyecto personal · 2026 · En desarrollo</p>
+          <h3>CitrusVision</h3>
+          <p>Inspección visual de naranjas y separación robótica con cámara, Python, OpenCV, Arduino y una garra de prototipo.</p>
+          <ul class="chips"><li>Visión artificial</li><li>Arduino</li><li>Robótica</li></ul>
+          <a class="link-arrow" href="blog/citrusvision.html">Leer cómo lo construí</a>
+        </div>
+      </article>
+      <div class="cards">
+        <article class="card"><span class="card-num">01</span><h3>Sensores y Arduino</h3><p>Adquisición de datos, comunicación serial y control de dispositivos.</p></article>
+        <article class="card"><span class="card-num">02</span><h3>Python para ingeniería</h3><p>Procesamiento de imágenes, scripts y análisis reproducible.</p></article>
+        <article class="card"><span class="card-num">03</span><h3>Fabricación digital</h3><p>Modelado CAD, piezas impresas en 3D y prototipado físico.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG: cada tarjeta enlaza a una página de la carpeta blog/. -->
+  <section class="section section-band" id="blog">
+    <div class="container">
+      <p class="section-label">Blog</p>
+      <h2>Notas desde el laboratorio.</h2>
+      <div class="posts">
+        <!-- Cada tarjeta tiene una portada: una foto o, si no hay, un símbolo grande. -->
+        <a class="post" href="blog/citrusvision.html">
+          <img class="post-cover" src="assets/img/citrusvision-680.webp" width="680" height="510" loading="lazy" decoding="async" alt="">
+          <div class="post-body">
+            <p class="meta">2026 · Robótica · Visión artificial</p>
+            <h3>Lo que descubrí al construir una clasificadora de naranjas</h3>
+            <p>Conectar cámara, Python y movimiento es más difícil de lo que parece.</p>
+            <span class="link-arrow">Leer artículo</span>
+          </div>
+        </a>
+        <a class="post" href="blog/olimpiada.html">
+          <div class="post-cover post-cover-symbol" aria-hidden="true">∑</div>
+          <div class="post-body">
+            <p class="meta">2022 · Matemáticas</p>
+            <h3>Lo que una olimpiada de matemáticas me enseñó sobre resolver problemas</h3>
+            <p>Cómo un concurso en la preparatoria me llevó a la ingeniería.</p>
+            <span class="link-arrow">Leer artículo</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV: se muestra como una hoja de papel (.cv-sheet). Al imprimir solo sale esa hoja
+       (@media print en styles.css); lo marcado con .no-print se oculta en papel. -->
+  <section class="section" id="cv">
+    <div class="container">
+      <div class="cv-intro no-print">
+        <div>
+          <p class="section-label">Currículum</p>
+          <h2>Mi trayectoria en una página.</h2>
+        </div>
+        <button class="btn" type="button" data-print>Imprimir / Guardar PDF</button>
+      </div>
+      <div class="cv-sheet">
+      <header class="cv-head">
+        <h3 class="cv-name">Mateo Duarte Armenta</h3>
+        <p>Ingeniería Mecatrónica · Hermosillo, Sonora · mateo.duarte@example.com</p>
+      </header>
+      <div class="cv-grid">
+        <div>
+          <div class="cv-block">
+            <h3>Perfil</h3>
+            <p>Estudiante de Ingeniería Mecatrónica, egreso en 2027. Interés en visión artificial, Arduino y automatización industrial. Busco prácticas profesionales para aplicar y ampliar lo que sé.</p>
+          </div>
+          <div class="cv-block">
+            <h3>Proyecto</h3>
+            <p><strong>CitrusVision</strong> · 2026, en desarrollo<br>Inspección visual de naranjas con cámara, Python/OpenCV, Arduino y mecanismo de separación robótica.</p>
+          </div>
+          <div class="cv-block">
+            <h3>Educación</h3>
+            <ol class="timeline">
+              <li><span>2023 — 2027</span><strong>Ingeniería Mecatrónica</strong>Universidad de Tecnología e Innovación del Desierto (UTID), Hermosillo</li>
+              <li><span>2020 — 2023</span><strong>Bachillerato</strong>Bachillerato Científico Río Sonora, área físico-matemática</li>
+            </ol>
+          </div>
+          <div class="cv-block">
+            <h3>Reconocimientos</h3>
+            <p><strong>Primer lugar</strong>, Olimpiada de Matemáticas de Sonora · 2022</p>
+          </div>
+        </div>
+        <div>
+          <div class="cv-block">
+            <h3>Habilidades técnicas</h3>
+            <ul><li>Arduino y sensores</li><li>Python</li><li>OpenCV (introductorio)</li><li>Diseño mecánico y CAD</li><li>Integración hardware/software</li></ul>
+          </div>
+          <div class="cv-block">
+            <h3>Formación complementaria</h3>
+            <ul><li>Harvard CS50x · en curso</li><li>CS50 Python · siguiente</li><li>OpenCV y Arduino · autoestudio</li></ul>
+          </div>
+          <div class="cv-block">
+            <h3>Idiomas</h3>
+            <p>Español nativo · Inglés en desarrollo</p>
+          </div>
+          <div class="cv-block">
+            <h3>Objetivo</h3>
+            <p>Prácticas 2027 en robótica, automatización, calidad, manufactura o visión artificial.</p>
+          </div>
+        </div>
+      </div>
+      </div><!-- /cv-sheet -->
+    </div>
+  </section>
+</main>
+
+<!-- CONTACTO: llamada a la acción final, correo y perfiles profesionales. -->
+<footer class="footer" id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="section-label">Contacto</p>
+        <h2>Busco mi siguiente oportunidad de aprender.</h2>
+        <p>Si tu equipo trabaja con sistemas físicos, software y automatización, me encantaría conversar.</p>
+        <a href="mailto:mateo.duarte@example.com" class="btn btn-light">Escríbeme</a>
+      </div>
+      <div>
+        <p class="section-label">Perfiles</p>
+        <ul class="footer-links">
+          <li><a href="mailto:mateo.duarte@example.com">mateo.duarte@example.com</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://medium.com/" target="_blank" rel="noopener noreferrer">Medium</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="bottom-bar">© <span data-year>2026</span> Mateo Duarte · Hecho con HTML, CSS y JavaScript</p>
+  </div>
+</footer>
+</body>
+</html>

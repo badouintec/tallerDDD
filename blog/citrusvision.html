@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f6f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="noindex,nofollow">
+  <title>CitrusVision: clasificadora de naranjas con Arduino y visión artificial · Mateo Duarte</title>
+  <meta name="description" content="Cómo conecté cámara, Python, OpenCV, Arduino y una garra robótica para inspeccionar naranjas, y qué aprendí en el proceso.">
+  <link rel="canonical" href="https://example.com/blog/citrusvision.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://example.com/blog/citrusvision.html">
+  <meta property="og:title" content="CitrusVision: clasificadora de naranjas con visión artificial">
+  <meta property="og:description" content="Cámara, Python, OpenCV, Arduino y una garra robótica para inspeccionar naranjas.">
+  <meta property="og:image" content="https://example.com/assets/img/citrusvision-1200.webp">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+<!-- Artículo del blog. Mismo estilo y menú que index.html.
+     Las rutas llevan ../ porque esta página vive dentro de la carpeta blog/. -->
+<a class="skip" href="#articulo">Saltar al artículo</a>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="../index.html"><span class="brand-mark">MD</span> Mateo Duarte</a>
+    <button class="nav-toggle" type="button" data-menu-toggle aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú">Menú ☰</button>
+    <nav class="nav" id="navegacion" data-nav aria-label="Navegación principal">
+      <a href="../index.html#proyectos">Proyectos</a>
+      <a href="../index.html#blog">Blog</a>
+      <a href="../index.html#cv">CV</a>
+      <a href="../index.html#contacto" class="nav-cta">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="articulo" class="article container">
+  <header class="article-header">
+    <p class="section-label">Blog · Robótica y software</p>
+    <h1>Lo que descubrí al construir una clasificadora de naranjas</h1>
+    <p class="lead">Un proyecto personal que conecta software, mecánica y errores de medición.</p>
+    <p class="meta">Noviembre de 2026 · Mateo Duarte</p>
+  </header>
+
+  <img class="article-cover" src="../assets/img/citrusvision-1600.webp"
+       srcset="../assets/img/citrusvision-680.webp 680w, ../assets/img/citrusvision-1200.webp 1200w, ../assets/img/citrusvision-1600.webp 1600w"
+       sizes="(max-width: 720px) 100vw, 1100px"
+       width="1600" height="1200" decoding="async"
+       alt="Estación de inspección de naranjas con cámara, banda y garra robótica">
+
+  <article class="prose">
+    <p>Todo comenzó con una pregunta: <strong>¿qué tan difícil sería construir una máquina capaz de observar una naranja, identificar anomalías visibles y separarla automáticamente?</strong> Quería un proyecto que reuniera electrónica, programación, mecanismos y sensores.</p>
+    <p>Lo que parecía sencillo empezó a mostrar su complejidad cuando intenté conectar todos los componentes en un solo flujo.</p>
+
+    <h2>1. Observar: la cámara y la imagen</h2>
+    <p>El primer paso es capturar imágenes y explorar sus características con Python y OpenCV. Hay que controlar iluminación, encuadre, movimiento y fondo: una mancha puede ser una lesión, una sombra o una variación normal de la cáscara.</p>
+    <p class="callout"><strong>Límite importante:</strong> detectar un área oscura no equivale a diagnosticar una enfermedad de los cítricos. Eso requeriría etiquetas de referencia, pruebas con especialistas y evaluación de errores.</p>
+
+    <h2>2. Decidir: de la imagen a una clasificación</h2>
+    <p>El software estima qué piezas requieren revisión a partir de características observables. Para evaluarlo bien necesito definir clases, crear un conjunto de imágenes etiquetadas y separar datos de entrenamiento y prueba. Las métricas deben incluir precisión, sensibilidad y matriz de confusión.</p>
+
+    <h2>3. Actuar: Arduino y una garra robótica</h2>
+    <p>La computadora procesa las imágenes y, por comunicación serial, envía una orden al Arduino, que mueve la garra. Así cada parte hace lo que mejor sabe hacer: la visión en la computadora y el control en el microcontrolador.</p>
+    <p>La precisión mecánica depende de la velocidad de la banda, la posición de la fruta y la sincronización. Un algoritmo puede acertar y aun así el sistema fallar si la garra no llega a tiempo.</p>
+
+    <h2>4. Arquitectura del prototipo</h2>
+    <ol>
+      <li>Cámara y sistema de iluminación.</li>
+      <li>Captura y procesamiento con Python/OpenCV.</li>
+      <li>Regla o modelo para señalar anomalías visuales.</li>
+      <li>Comunicación serial con Arduino.</li>
+      <li>Actuadores, garra y mecanismo de separación.</li>
+      <li>Registro de resultados para evaluar errores.</li>
+    </ol>
+
+    <h2>5. Estado actual y siguientes pruebas</h2>
+    <p>El prototipo sigue en desarrollo y todavía no tengo mediciones que reportar. Mis siguientes pasos: recolectar imágenes en condiciones controladas, documentar falsas alarmas, probar distintas velocidades de banda y medir de forma reproducible cada decisión del sistema.</p>
+
+    <h2>6. Lo que estoy aprendiendo</h2>
+    <blockquote>Lo valioso no es que un componente funcione por separado, sino diseñar una integración en la que software, electrónica, mecánica y pruebas permitan confiar en el resultado.</blockquote>
+
+    <h2>Referencias</h2>
+    <ul>
+      <li><a href="https://docs.opencv.org/" target="_blank" rel="noopener noreferrer">OpenCV Documentation</a></li>
+      <li><a href="https://docs.arduino.cc/" target="_blank" rel="noopener noreferrer">Arduino Documentation</a></li>
+      <li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html" target="_blank" rel="noopener noreferrer">scikit-learn: evaluación de modelos</a></li>
+      <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Documentación de Python</a></li>
+    </ul>
+
+    <p><a class="link-arrow" href="../index.html#blog">Volver al blog</a></p>
+  </article>
+</main>
+
+<footer class="footer footer-small">
+  <div class="container">
+    <p>© <span data-year>2026</span> Mateo Duarte · <a href="../index.html#contacto">Contacto</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+geografia,indicador,valor,unidad,periodo,metodologia,fuente,consulta
+Sonora,poblacion_2020,2944840,personas,2020,Censo población,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+Sonora,PEA_2026_T1,1449212,personas,2026-T1,ENOE/Data México,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+Sonora,desempleo_2026_T1,3.02,porcentaje,2026-T1,ENOE/Data México,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+Sonora,informalidad_2026_T1,42.7,porcentaje,2026-T1,ENOE/Data México,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+Sonora,ingreso_mensual_promedio_total_2026_T1,9500,MXN/mes_aproximado,2026-T1,ENOE/Data México aproximado 9.5k,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+Sonora,VACB_sector_privado_2023,478744,millones_MXN_precios_2023,2023,Censos definitivos,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Sonora,unidades_economicas_sector_privado_2023,110691,unidades,2023,Censos definitivos,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+México,crecimiento_ingreso_profesional_real_2020_2025,10,porcentaje_real,2020-2025,IMCO resumen 2026,https://imco.org.mx/compara-carreras-2026/,2026-11-11

@@ -1,0 +1,18 @@
+sector,unidades_economicas,personal_ocupado,valor_agregado_millones_mxn,anio,grupo,fuente,consulta
+Manufacturas,12435,234863,203470,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Minería,112,20142,64471,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Comercio al por mayor,4117,51779,39515,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Comercio al por menor,39755,152903,56448,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Construcción,876,29848,11591,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+"Transportes, correos y almacenamiento",816,23115,10767,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+"Servicios profesionales, científicos y técnicos",3100,16602,3063,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Servicios educativos,1190,18366,4117,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Servicios de salud y de asistencia social,6297,24778,5492,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Hoteles y restaurantes,13929,66342,15507,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Servicios inmobiliarios y alquiler,2588,9723,3712,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Información en medios masivos,204,3744,1372,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Otros servicios excepto gobierno,20990,46416,7162,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Pesca y acuicultura,909,29750,9175,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Servicios financieros y de seguros,1186,5996,3069,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+Apoyo a negocios y manejo de residuos,911,23767,6871,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+"Esparcimiento, culturales y deportivos",1196,6480,1510,2023,seleccion_de_sectores_no_exhaustiva,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11

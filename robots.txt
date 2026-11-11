@@ -1,0 +1,6 @@
+# robots.txt: indica a los buscadores qué pueden rastrear y dónde está el sitemap.
+# build.py cambia el dominio de ejemplo por el tuyo (variable PUBLIC_SITE_URL).
+User-agent: *
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

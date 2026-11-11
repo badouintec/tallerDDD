@@ -1,0 +1,9 @@
+# Cabeceras HTTP que Cloudflare Pages aplica a cada respuesta (seguridad y caché).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/assets/*
+  Cache-Control: public, max-age=3600

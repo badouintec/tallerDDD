@@ -1,0 +1,495 @@
+/* ======================================================================
+   Hoja de estilos única del sitio (index.html y blog/*.html).
+   Sin frameworks ni fuentes externas. Secciones numeradas: busca "==" para
+   saltar entre ellas.
+   ====================================================================== */
+
+
+/* ======================================================================
+   1. VARIABLES DE DISEÑO
+   TODOS los colores y fuentes del sitio están aquí. Para crear tu propia
+   identidad visual cambia solo este bloque (y el de modo oscuro).
+   ====================================================================== */
+:root {
+  --bg: #f5f6f8;            /* fondo general, gris muy claro */
+  --band: #e8ebf0;          /* franjas alternas (Proyectos y CV) */
+  --surface: #ffffff;       /* tarjetas y paneles */
+  --surface-soft: #eef1f6;  /* paneles destacados */
+  --ink: #0f172a;           /* texto principal, casi negro */
+  --muted: #5b6474;         /* texto secundario, gris */
+  --line: #dce0e6;          /* bordes y separadores */
+  --accent: #2f5b9a;        /* azul acero: detalles y enlaces */
+  --brand: #1e3a5f;         /* azul marino: etiquetas y estados */
+  --brand-deep: #1e3a5f;    /* bloques de color sólido; igual en modo oscuro */
+  --dark: #0f172a;          /* fondo del pie de página */
+  --on-dark: #f1f5f9;       /* texto sobre fondo oscuro */
+  --on-dark-muted: #94a3b8;
+
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --radius: 18px;
+  --shadow: 0 18px 50px rgba(15, 23, 42, .08);
+}
+
+/* Modo oscuro automático según la preferencia del sistema operativo. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --band: #090c11;
+    --surface: #151b23;
+    --surface-soft: #1a2230;
+    --ink: #e6e9ef;
+    --muted: #9aa4b2;
+    --line: #262e3a;
+    --accent: #7aa7e6;
+    --brand: #a5bfe3;
+    --dark: #06080c;
+    --shadow: 0 18px 50px rgba(0, 0, 0, .35);
+  }
+}
+
+
+/* ======================================================================
+   2. BASE
+   Reglas generales para todo el documento.
+   ====================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;   /* evita que el encabezado fijo tape los títulos */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .2em; }
+a:hover { color: var(--accent); }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3 {
+  margin: 0 0 .5em;
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.015em;
+  text-wrap: balance;         /* reparte el texto en líneas parejas */
+}
+h1 { font-size: clamp(2.5rem, 4.8vw, 4.2rem); }
+h2 { font-size: clamp(2rem, 3.6vw, 3rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; max-width: 68ch; text-wrap: pretty; }
+ul, ol { margin: 0; }
+
+
+/* ======================================================================
+   3. PIEZAS REUTILIZABLES
+   Contenedor, etiquetas, botones, chips y flechas que se usan en todo el sitio.
+   ====================================================================== */
+.container { width: min(1140px, 100% - 48px); margin-inline: auto; }
+
+/* Enlace "Saltar al contenido": invisible hasta que se navega con Tab. */
+.skip { position: absolute; top: -100px; left: 12px; z-index: 30; padding: 10px 14px; background: var(--surface); }
+.skip:focus { top: 12px; }
+
+/* Etiqueta pequeña sobre cada título de sección. */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--brand);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.section-label::before { content: ""; width: 24px; height: 2px; background: var(--accent); }
+
+/* Texto pequeño con fecha o categoría. */
+.meta { margin-bottom: 8px; color: var(--muted); font-size: .82rem; letter-spacing: .02em; }
+
+/* Botones: .btn oscuro, .btn-alt con borde, .btn-light para fondo oscuro. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: .92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); color: var(--bg); background: var(--brand); border-color: var(--brand); }
+.btn-alt { background: transparent; color: var(--ink); }
+.btn-alt:hover { background: var(--surface); color: var(--ink); border-color: var(--ink); }
+.btn-light { background: var(--on-dark); color: var(--dark); border-color: var(--on-dark); }
+.btn-light:hover { background: #fff; color: var(--dark); border-color: #fff; }
+
+/* Chips: etiquetas redondeadas para habilidades. */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+.chips li {
+  padding: 6px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: .82rem;
+}
+
+/* Enlace con flecha al final. */
+.link-arrow {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--brand);
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+}
+.link-arrow::after { content: "→"; display: inline-block; margin-left: 6px; transition: transform .2s; }
+a:hover .link-arrow::after, .link-arrow:hover::after { transform: translateX(4px); }
+
+
+/* ======================================================================
+   4. ENCABEZADO Y MENÚ
+   Barra fija arriba (sticky) con logotipo y navegación.
+   ====================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+}
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: .82rem;
+}
+.nav { display: flex; align-items: center; gap: 26px; }
+.nav a { color: var(--muted); font-size: .9rem; font-weight: 550; text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+.nav .nav-cta { padding: 8px 18px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); }
+.nav-toggle { display: none; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); }
+
+
+/* ======================================================================
+   5. PORTADA (HERO)
+   Texto a la izquierda y foto a la derecha.
+   ====================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+.hero h1 { max-width: 19ch; }
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--brand);
+  font-size: .82rem;
+  font-weight: 600;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+.lead { color: var(--muted); font-size: 1.15rem; line-height: 1.7; }
+.lead strong { color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 40px; }
+
+/* Datos rápidos bajo los botones (lista de definiciones <dl>). */
+.facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 36px; margin: 0; padding-top: 24px; border-top: 1px solid var(--line); }
+.facts dt { color: var(--muted); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; }
+.facts dd { margin: 4px 0 0; font-weight: 600; }
+
+.hero-figure { position: relative; margin: 0 0 0 auto; max-width: 440px; }
+/* Marco decorativo en arco, desplazado detrás de la foto. */
+.hero-figure::before {
+  content: "";
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  border: 1.5px solid var(--accent);
+  border-radius: 999px 999px var(--radius) var(--radius);
+}
+.hero-figure img {
+  position: relative;         /* queda por encima del marco */
+  width: 100%;
+  aspect-ratio: 4 / 5;        /* igual a la proporción real de la foto */
+  object-fit: cover;
+  border-radius: 999px 999px var(--radius) var(--radius);  /* forma de arco */
+  box-shadow: var(--shadow);
+}
+/* Tarjeta flotante sobre la foto que lleva al proyecto actual. */
+.hero-badge {
+  position: absolute;
+  left: -28px;
+  bottom: 36px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.hero-badge span { display: block; font-family: var(--sans); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+
+/* ======================================================================
+   6. SECCIONES Y "SOBRE MÍ"
+   ====================================================================== */
+.section { padding: clamp(64px, 9vw, 112px) 0; }
+.hero + .section { border-top: 1px solid var(--line); }
+/* Franja de color alterna: da ritmo y separa visualmente las secciones. */
+.section-band { background: var(--band); }
+.split { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.intro { font-size: 1.2rem; line-height: 1.75; }
+.split p:not(.intro):not(.section-label) { color: var(--muted); }
+
+/* Columna derecha: paneles apilados. */
+.stack { display: grid; gap: 16px; }
+.panel { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.panel-soft { background: var(--surface-soft); }
+.panel-title { margin-bottom: 12px; font-family: var(--sans); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* Filas con texto a la izquierda y detalle a la derecha. */
+.rows { padding: 0; list-style: none; }
+.rows li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-weight: 550; }
+.rows li:last-child { border-bottom: 0; padding-bottom: 0; }
+.rows span { color: var(--muted); font-size: .85rem; font-weight: 400; text-align: right; }
+
+/* RUMBO: hipótesis del Ejercicio 1. Arriba la hipótesis; abajo evidencia, límite y acción. */
+.compass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.compass article { padding: 28px; border-radius: var(--radius); }
+.compass .meta { font-weight: 700; text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; }
+.compass-main { grid-column: 1 / -1; background: var(--brand-deep); color: var(--on-dark); }
+.compass-main .meta { color: var(--on-dark-muted); }
+.compass-main p:last-child { margin: 0; max-width: 40ch; font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.3; }
+.compass-item { border: 1px solid var(--line); background: var(--surface); }
+.compass-item .meta { color: var(--accent); }
+.compass-item p:last-child { margin: 0; color: var(--muted); }
+
+
+/* ======================================================================
+   7. PROYECTOS
+   Proyecto destacado (foto + texto) y tarjetas de exploración.
+   ====================================================================== */
+.feature {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  margin-top: 36px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.feature img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .6s; }
+.feature:hover img { transform: scale(1.03); }
+.feature-body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; padding: clamp(26px, 4vw, 48px); }
+.feature-body h3 { font-size: clamp(1.8rem, 2.8vw, 2.4rem); }
+.feature-body p:not(.meta) { color: var(--muted); }
+.feature-body .chips { margin-bottom: 14px; }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+.card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.card-num { display: block; margin-bottom: 18px; color: var(--accent); font-family: var(--serif); font-size: 2rem; line-height: 1; }
+.card p:last-child { margin: 0; color: var(--muted); font-size: .95rem; }
+
+
+/* ======================================================================
+   8. BLOG
+   Tarjetas que enlazan a los artículos de la carpeta blog/.
+   ====================================================================== */
+.posts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
+.post {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.post:hover { color: inherit; transform: translateY(-4px); box-shadow: var(--shadow); }
+.post-cover { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 50% 30%; }
+/* Portada sin foto: un símbolo grande sobre el color de marca. */
+.post-cover-symbol {
+  display: grid;
+  place-items: center;
+  background: var(--brand-deep);
+  color: var(--on-dark);
+  font-family: var(--serif);
+  font-size: 6rem;
+  line-height: 1;
+}
+.post-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 28px 30px 30px; }
+.post-body p:not(.meta) { color: var(--muted); }
+.post-body .link-arrow { margin-top: auto; }
+
+
+/* ======================================================================
+   9. CV
+   Una "hoja de papel" con dos columnas. Al imprimir, solo sale la hoja
+   (ver sección 13).
+   ====================================================================== */
+.cv-intro { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 36px; }
+.cv-intro h2 { margin: 0; }
+.cv-sheet {
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.cv-head { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 2px solid var(--ink); }
+.cv-name { margin-bottom: 6px; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.cv-head p { margin: 0; color: var(--muted); }
+.cv-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(28px, 5vw, 64px); }
+.cv-block { padding: 20px 0; border-top: 1px solid var(--line); }
+.cv-block h3 { font-family: var(--sans); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.cv-block p, .cv-block ul { margin: 0; color: var(--muted); }
+.cv-block strong { color: var(--ink); }
+.cv-block ul { padding-left: 18px; }
+.cv-block li { margin: 4px 0; }
+
+/* Línea de tiempo de educación. */
+.cv-block .timeline { padding: 0; list-style: none; }
+.timeline li { position: relative; margin: 0 0 14px; padding-left: 22px; color: var(--muted); }
+.timeline li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.timeline span { display: block; font-size: .8rem; }
+.timeline strong { display: block; }
+.cv-grid .cv-block:first-child { border-top: 0; padding-top: 0; }
+
+
+/* ======================================================================
+   10. PIE DE PÁGINA / CONTACTO
+   ====================================================================== */
+.footer { padding: clamp(64px, 9vw, 104px) 0 32px; background: var(--dark); color: var(--on-dark); }
+.footer .section-label { color: var(--on-dark-muted); }
+.footer h2 { max-width: 16ch; }
+.footer p { color: var(--on-dark-muted); }
+.footer a:hover { color: #fff; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 48px; }
+.footer-links { display: grid; gap: 12px; padding: 0; list-style: none; }
+.footer-links a { text-decoration: none; border-bottom: 1px solid var(--on-dark-muted); }
+.bottom-bar { margin: 64px 0 0; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: .82rem; max-width: none; }
+.footer-small { padding: 28px 0; }
+.footer-small p { margin: 0; font-size: .88rem; }
+
+
+/* ======================================================================
+   11. PÁGINAS DE ARTÍCULO (blog/*.html)
+   ====================================================================== */
+.article { padding: clamp(48px, 7vw, 88px) 0; }
+.article-header { max-width: 780px; margin: 0 auto 40px; }
+.article-cover {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  object-position: 50% 25%;   /* mantiene la cara visible al recortar */
+  margin-bottom: 48px;
+  border-radius: var(--radius);
+}
+.prose { max-width: 720px; margin: 0 auto; font-size: 1.08rem; line-height: 1.85; }
+.prose h2 { margin-top: 48px; font-size: 1.8rem; }
+.prose ol, .prose ul { padding-left: 22px; margin-bottom: 1em; }
+.prose li { margin: 6px 0; }
+.prose blockquote { margin: 32px 0; padding: 4px 0 4px 24px; border-left: 3px solid var(--accent); font-family: var(--serif); font-size: 1.35rem; line-height: 1.5; }
+.callout { padding: 18px 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); font-size: .95rem; }
+
+
+/* ======================================================================
+   12. RESPONSIVE
+   Tablet (≤ 900 px) y celular (≤ 720 px). En celular todo pasa a una
+   columna y el menú se oculta tras "Menú ☰" (main.js añade la clase .open).
+   ====================================================================== */
+@media (max-width: 900px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .nav { gap: 16px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .container { width: min(100% - 32px, 560px); }
+  .header-row { height: 64px; }
+
+  .nav-toggle { display: block; }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 24px 24px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .nav.open { display: flex; }
+
+  .hero, .split, .compass, .feature, .cards, .posts, .cv-grid, .footer-grid { grid-template-columns: 1fr; }
+  .hero-figure { order: -1; max-width: none; margin: 0 10px 10px 0; }   /* en celular la foto va primero */
+  .hero-figure::before { inset: 10px -10px -10px 10px; border-radius: var(--radius); }
+  .hero-figure img { aspect-ratio: 1; border-radius: var(--radius); object-position: 50% 20%; }
+  .hero-badge { left: 12px; bottom: 12px; }
+  .facts { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .cv-intro { flex-direction: column; align-items: flex-start; }
+  .article-cover { aspect-ratio: 4 / 3; }
+}
+
+
+/* ======================================================================
+   13. ACCESIBILIDAD E IMPRESIÓN
+   ====================================================================== */
+/* Respeta a quien desactivó animaciones en su sistema operativo. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
+
+/* Al pulsar "Imprimir / Guardar PDF" solo se imprime el CV, siempre en claro. */
+@page { size: A4; margin: 14mm; }
+
+@media print {
+  :root { --bg: #fff; --surface: #fff; --ink: #111; --muted: #333; --line: #ccc; --brand: #1e3a5f; --accent: #2f5b9a; }
+  body { font-size: 10pt; }
+  .skip, .site-header, .hero, .section:not(#cv), .footer, .no-print { display: none !important; }
+  #cv { padding: 0; background: none; }
+  .container { width: 100%; }
+  .cv-sheet { max-width: none; padding: 0; border: 0; box-shadow: none; }
+  .cv-head { margin-bottom: 6mm; padding-bottom: 4mm; }
+  .cv-name { font-size: 22pt; }
+  .cv-grid { grid-template-columns: 1.3fr .7fr; gap: 12mm; }
+  .cv-block { padding: 3mm 0; break-inside: avoid; }
+  a { text-decoration: none; }
+}

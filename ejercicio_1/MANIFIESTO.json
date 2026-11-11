@@ -1,0 +1,75 @@
+{
+  "actualizado": "2026-11-11",
+  "archivos": [
+    {
+      "archivo": "01_demografia_conapo_sonora.csv",
+      "filas": 4
+    },
+    {
+      "archivo": "02_estructura_productiva_inegi.csv",
+      "filas": 4
+    },
+    {
+      "archivo": "03_sectores_sonora_detalle_inegi.csv",
+      "filas": 17
+    },
+    {
+      "archivo": "04_remuneraciones_por_actividad_inegi.csv",
+      "filas": 5
+    },
+    {
+      "archivo": "05_salarios_campos_mx_ola.csv",
+      "filas": 10
+    },
+    {
+      "archivo": "06_ocupaciones_eeuu_bls.csv",
+      "filas": 11
+    },
+    {
+      "archivo": "07_municipios_inegi_mapa.csv",
+      "filas": 10
+    },
+    {
+      "archivo": "08_vacantes_hermosillo_muestra.csv",
+      "filas": 13
+    },
+    {
+      "archivo": "09_carreras_habilidades_orientativas.csv",
+      "filas": 8
+    },
+    {
+      "archivo": "10_rutas_formacion_oficiales.csv",
+      "filas": 8
+    },
+    {
+      "archivo": "11_indicadores_contexto.csv",
+      "filas": 8
+    },
+    {
+      "archivo": "12_diccionario_fuentes.csv",
+      "filas": 10
+    },
+    {
+      "archivo": "13_perfil_ficticio.csv",
+      "filas": 1
+    },
+    {
+      "archivo": "14_subsectores_manufactura_sonora.csv",
+      "filas": 3
+    },
+    {
+      "archivo": "15_nodos_oportunidades_geograficas.csv",
+      "filas": 6
+    }
+  ],
+  "limites": [
+    "Datos oficiales delimitados por encuesta o censo y periodo",
+    "Muestra de vacantes intencional y predominantemente de TE: no representa el mercado",
+    "NO existe sueldo estatal verificado de la carrera Mecatrónica en los indicadores OLA proporcionados",
+    "BLS salarios EEUU ocupaciones, no ofertas y sin ajustar costo de vida/migración",
+    "El modelo KMeans solo agrupa habilidades de la muestra; no proyecta trabajos ni salarios",
+    "El mapa usa centros municipales aproximados; no coordenadas de empresas",
+    "Complessidad economica: se enseña un cociente de localizacion (LQ), NO ECI/PCI",
+    "No se reproducen datos comerciales confidenciales ni información personal"
+  ]
+}

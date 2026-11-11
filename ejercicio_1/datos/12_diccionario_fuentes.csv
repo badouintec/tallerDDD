@@ -1,0 +1,11 @@
+id,institucion,conjunto,periodo,alcance,limite,link,fecha_compilacion
+INEGI_SON,INEGI,Censos Económicos 2024 definitivos Sonora,2023,Sector privado y empresas paraestatales; universo censal,No son puestos IMSS ni ENOE,https://www.inegi.org.mx/contenidos/programas/ce/2024/doc/mson_ce24.pdf,2026-11-11
+INEGI_MX,INEGI,Censos Económicos 2024 definitivos México,2023,Mismo universo que Sonora para LQ,No aproximar LQ a ECI,https://www.inegi.org.mx/programas/ce/2024/default.html,2026-11-11
+CONAPO,CONAPO/COESPO,Proyecciones población Sonora COESPO 2025-2040,2025-2040,Serie particular y proyección no observación,No mezclar con versiones distintas de CONAPO,https://coespo.sonora.gob.mx/images/documentos/Proyecciones2020-2070/Proyecciones2025-2040-Estatal.pdf,2026-11-11
+OLA,STPS/INEGI,Observatorio Laboral Ingenierías,2026-T2,Promedio campo profesional México nacional,No es salario entrada ni sueldo Hermosillo,https://www.observatoriolaboral.gob.mx/static/estudios-publicaciones/Ingenierias.html,2026-11-11
+BLS,US DOL BLS,Occupational Outlook Handbook,2025 a 2035,Mediana anual mayo 2025 y crecimiento empleo EE. UU.,No incluye permiso de trabajo ni ajuste costo de vida,https://www.bls.gov/ooh/,2026-11-11
+TE,TE Connectivity,Vacantes Hermosillo,2026,Requisitos de anuncios individuales,Muestra intencional; no medir demanda total,https://careers.te.com/,2026-11-11
+FORD,Ford Motor Company,Quality Engineer HSAP,2026,Requisitos vacante Hermosillo,Salario no publicado,https://www.careers.ford.com/en/job/hermosillo/program-quality-engineer-hsap/48560/101747564528,2026-11-11
+DMX,Secretaría de Economía/Data México,Sonora Perfil,2020-2026,Indicadores regionales de distintas fechas,No mezclar variables de tiempos distintos,https://www.economia.gob.mx/datamexico/es/profile/geo/sonora-so,2026-11-11
+ECI,Secretaría de Economía/Data México,Explorador de complejidad económica,,Marco y metodología ECI/PCI,No se calcula un ECI con vacantes ni con 2 sectores,https://www.economia.gob.mx/datamexico/es/eci/explore,2026-11-11
+IMCO,IMCO,Compara Carreras 2026,,Metodología con microdatos ENOE,No convertir correlación en causalidad,https://comparacarreras.imco.org.mx/metodologia/,2026-11-11

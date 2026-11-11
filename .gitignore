@@ -1,0 +1,6 @@
+# Carpeta generada por build.py (Cloudflare la crea en cada despliegue)
+dist/
+# Archivos del sistema y del editor
+.DS_Store
+.playwright-mcp/
+__pycache__/
