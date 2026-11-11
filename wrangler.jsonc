@@ -1,0 +1,10 @@
+// Configuración de Cloudflare: publica la raíz como sitio estático, sin build.
+// Lo que NO se publica está en .assetsignore (ejercicio_1/, README.md, etc.).
+// "name" debe ser igual al Project name que pusiste en Cloudflare.
+{
+  "name": "tallerddd",
+  "compatibility_date": "2026-11-11",
+  "assets": {
+    "directory": "."
+  }
+}

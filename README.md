@@ -28,6 +28,7 @@ TALLERDDD/
 ├── sitemap.xml         # SEO: lista de páginas del sitio
 ├── _headers            # Cabeceras de seguridad para Cloudflare
 ├── .assetsignore       # Lo que Cloudflare NO publica (ejercicio_1/, README, etc.)
+├── wrangler.jsonc      # Configuración de Cloudflare (nombre del proyecto)
 ├── ejercicio_1/        # Análisis de carrera en Colab (no se publica)
 ├── README.md
 └── AGENTS.md           # Reglas para agentes de IA
@@ -146,20 +147,19 @@ Los archivos usan el dominio de ejemplo `https://example.com`. Cuando tengas tu 
 
 ## Publicar en Cloudflare
 
-Cloudflare Dashboard → **Workers & Pages** → **Create** → **Import a repository** → elige tu repo:
+Primero cambia `"name"` en `wrangler.jsonc` por tu nombre de proyecto (por ejemplo `"ana-lopez"`). Luego, en Cloudflare Dashboard → **Workers & Pages** → **Create** → **Import a repository** → elige tu repo:
 
 | Ajuste | Valor |
 | --- | --- |
-| Project name | `tu-nombre` |
+| Project name | el mismo de `wrangler.jsonc` |
 | Build command | *(vacío)* |
-| Deploy command | `npx wrangler deploy --assets . --name tu-nombre --compatibility-date 2026-11-11` |
-| Preview command | `npx wrangler versions upload --assets . --name tu-nombre --compatibility-date 2026-11-11` |
+| Deploy command | `npx wrangler deploy` *(el que viene)* |
+| Enable Preview builds | apagado |
+| Protect with Cloudflare Access | apagado (si lo enciendes, piden login para ver tu sitio) |
 
-Usa el mismo nombre en **Project name** y en `--name`. Cada `git push` a `main` publica el sitio en `tu-nombre.<subdominio>.workers.dev`.
+Cada `git push` a `main` publica el sitio en `tu-nombre.<subdominio>.workers.dev`.
 
-Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ejercicio_1/`, `README.md`, `AGENTS.md` y archivos ocultos. Si agregas carpetas privadas, añádelas ahí.
-
-**No dejes el deploy command por defecto** (`npx wrangler deploy` a secas): Cloudflare intentaría detectar el proyecto por su cuenta y crearía una rama con un pull request.
+Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ejercicio_1/`, `README.md`, `AGENTS.md`, `wrangler.jsonc` y archivos ocultos. Si agregas carpetas privadas, añádelas ahí.
 
 ## Herramientas del taller
 

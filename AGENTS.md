@@ -29,6 +29,7 @@ Este repositorio tiene **dos ejercicios vinculados**: análisis de carrera con C
 | `robots.txt`, `sitemap.xml` | SEO; dominio de ejemplo `https://example.com` |
 | `_headers` | Cabeceras de seguridad de Cloudflare |
 | `.assetsignore` | Lo que Cloudflare no publica (formato `.gitignore`) |
+| `wrangler.jsonc` | Configuración de Cloudflare; `name` = nombre del proyecto |
 | `ejercicio_1/` | Análisis de carrera en Colab; nunca se publica |
 
 ## Criterios de aceptación
