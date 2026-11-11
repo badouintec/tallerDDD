@@ -97,9 +97,9 @@ tallerDDD/
 
 | Archivo | Qué es |
 | --- | --- |
-| `.assetsignore` | Lista de lo que Cloudflare **no** debe publicar: `ejercicio_1/`, `docs/`, `README.md`, archivos ocultos… Funciona como `.gitignore`. |
+| `.assetsignore` | Lista de lo que Cloudflare **no** publica en el sitio: `ejercicio_1/`, `docs/`, `graphify-out/`, los `.md` y archivos ocultos. **No afecta a GitHub**: todo eso sí está en el repositorio. |
 | `wrangler.jsonc` | Configuración de Cloudflare. Lo único que cambias es `"name"`, que debe ser igual al nombre del proyecto en Cloudflare. |
-| `.gitignore` | Lista de lo que Git no sube a GitHub: archivos del sistema (`.DS_Store`), el entorno de Python `.venv/` y la caché de Graphify |
+| `.gitignore` | Lista de lo que Git no sube a GitHub. Solo dos cosas que no sirven en otra computadora: `.venv/` (el Python de tu máquina) y `.DS_Store` (basura de macOS) |
 | `graphify-out/` | El mapa del código que generó Graphify: `graph.html` (interactivo), `GRAPH_REPORT.md` (resumen) y `wiki/`. Ver [sección 7.2](#72-graphify-el-mapa-de-tu-código) |
 | `.github/copilot-instructions.md` | Reglas de [Ponytail](https://ponytail.dev/) para GitHub Copilot en VS Code (ver [sección 7](#7-herramientas-ponytail-y-graphify)) |
 | `AGENTS.md` | Reglas para cualquier agente de IA (Claude, Codex, Copilot…): qué puede y qué no puede hacer en este proyecto |
@@ -619,7 +619,7 @@ El resultado se guarda en `graphify-out/`. Este repositorio ya incluye uno de ej
 | `graph.json` | Los datos del grafo; lo usan los comandos `graphify query` y `graphify explain` |
 | `wiki/` | Una ficha en Markdown por cada nodo |
 
-`graphify-out/` se sube a GitHub como ejemplo, pero **no se publica** en el sitio (está en `.assetsignore`). Su subcarpeta `cache/` no se sube: Graphify la regenera.
+`graphify-out/` está completo en GitHub como ejemplo, pero **no se publica** en el sitio (está en `.assetsignore`).
 
 Prueba hacerle preguntas al grafo desde la terminal:
 

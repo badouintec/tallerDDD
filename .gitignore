@@ -1,7 +1,5 @@
-# Archivos del sistema y del editor
-.DS_Store
-.playwright-mcp/
-.wrangler/
+# Solo se ignora lo que no sirve en otra computadora:
+# .venv/ = Python instalado para Graphify (cada quien lo crea con: python3 -m venv .venv)
+# .DS_Store = archivos basura de macOS
 .venv/
-__pycache__/
-graphify-out/cache/
+.DS_Store

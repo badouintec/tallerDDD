@@ -5,7 +5,6 @@
 ejercicio_1/
 docs/
 graphify-out/
-README.md
-AGENTS.md
+*.md
 wrangler.jsonc
 dist/

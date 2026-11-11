@@ -45,7 +45,8 @@ TALLERDDD/
 ├── _headers            # Cabeceras de seguridad para Cloudflare
 ├── .assetsignore       # Lo que Cloudflare NO publica (ejercicio_1/, README, etc.)
 ├── wrangler.jsonc      # Configuración de Cloudflare (nombre del proyecto)
-├── .gitignore          # Lo que Git NO sube (.DS_Store, .venv/)
+├── .gitignore          # Lo que Git NO sube: solo .venv/ y .DS_Store
+├── PROMPTS.md          # Prompts listos para copiar, con [campos] para llenar
 ├── graphify-out/       # Mapa del código generado con Graphify (no se publica)
 ├── .github/copilot-instructions.md  # Reglas Ponytail para Copilot
 ├── AGENTS.md           # Reglas para agentes de IA (incluye Ponytail)
@@ -147,10 +148,18 @@ Revisa después de cada cambio:
 
 ### 5. Prompts para trabajar con el agente
 
-- **Personalizar:** «Lee `AGENTS.md`. Cambia el sitio a mi carrera y aspiraciones sin inventar experiencia, logros ni enlaces. Primero dame un plan de archivos; luego haz el cambio mínimo».
-- **Diseño:** «Analiza `index.html` y la sección 1 de `styles.css`. Propón una paleta y jerarquía acordes con mi disciplina, sin dependencias. Explica cómo verificar cada cambio».
-- **SEO:** «Audita títulos, descripciones, encabezados, Open Graph, `alt`, JSON-LD, `robots.txt` y `sitemap.xml`. Separa lo que se verifica en local de lo que requiere dominio».
-- **Conectar ejercicios:** «Lee mi `plan_carrera_*.md` del Ejercicio 1 y actualiza la sección Rumbo de `index.html` con mi hipótesis, evidencia, límite y acción. Usa solo cifras que estén en el plan y no prometas empleo».
+Todos los prompts están en **[PROMPTS.md](PROMPTS.md)**, listos para copiar, con `[campos entre corchetes]` para llenar con tu información:
+
+1. El prompt con el que se pudo haber creado este sitio, para hacer el tuyo
+2. Adaptar el diseño a tu disciplina
+3. Llevar tu hipótesis del Ejercicio 1 a la sección Rumbo
+4. Adaptar `AGENTS.md`
+5. Ponytail: instalarlo y revisar el sitio
+6. Graphify: generar el mapa y entender el código
+7. Agregar un artículo al blog
+8. SEO y accesibilidad
+9. Revisión final antes de publicar
+10. Publicar en Cloudflare
 
 ## SEO
 
