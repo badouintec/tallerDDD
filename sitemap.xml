@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- sitemap.xml: lista de páginas del sitio para buscadores.
      Si agregas un artículo en blog/, agrégalo aquí también.
-     build.py cambia el dominio de ejemplo por el tuyo (variable PUBLIC_SITE_URL). -->
+     Cambia https://example.com por tu dominio cuando publiques tu sitio real. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://example.com/</loc></url>
-  <url><loc>https://example.com/blog/citrusvision.html</loc></url>
-  <url><loc>https://example.com/blog/olimpiada.html</loc></url>
+  <url><loc>https://example.com/blog/citrusvision</loc></url>
+  <url><loc>https://example.com/blog/olimpiada</loc></url>
 </urlset>

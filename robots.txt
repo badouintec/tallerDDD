@@ -1,5 +1,5 @@
 # robots.txt: indica a los buscadores qué pueden rastrear y dónde está el sitemap.
-# build.py cambia el dominio de ejemplo por el tuyo (variable PUBLIC_SITE_URL).
+# Cambia https://example.com por tu dominio cuando publiques tu sitio real.
 User-agent: *
 Allow: /
 

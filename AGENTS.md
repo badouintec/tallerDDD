@@ -10,12 +10,12 @@ Este repositorio tiene **dos ejercicios vinculados**: análisis de carrera con C
 2. **HTML, CSS y JS simples.** Sitio estático, accesible y rápido. Prohibido introducir React, Tailwind, bundlers, Node/npm o frameworks salvo petición expresa y justificada.
 3. **Ponytail — simplicidad.** Cambio mínimo, reutilizar lo existente, eliminar complejidad. Al entregar: pruebas hechas, pendientes y riesgos. Referencia: <https://ponytail.dev/>
 4. **No perder la función.** Verificar menú en celular, enlaces, responsive, modo oscuro, impresión del CV y páginas del blog.
-5. **Publicación segura.** Publicar SOLO `dist/`, generado con `python3 build.py`. Nunca publicar `ejercicio_1/`, CSV, notebooks, `.md` ni claves. Si agregas un archivo público nuevo en la raíz, añádelo a `PUBLICO` en `build.py`.
-6. **Indexación responsable.** Mantener `noindex,nofollow` mientras el sitio tenga contenido de ejemplo. Quitarlo solo cuando el estudiante confirme que todo es real y haya definido `PUBLIC_SITE_URL`.
+5. **Publicación segura.** Cloudflare publica la raíz tal cual, sin build. Todo lo privado (`ejercicio_1/`, `.md`, archivos ocultos) debe estar en `.assetsignore`. Si agregas una carpeta o archivo privado, añádelo ahí. No introducir pasos de build.
+6. **Indexación responsable.** Mantener `noindex,nofollow` mientras el sitio tenga contenido de ejemplo. Quitarlo solo cuando el estudiante confirme que todo es real y haya cambiado `https://example.com` por su dominio.
 7. **SEO sin trucos.** Títulos y descripciones honestos, `alt`, estructura semántica, JSON-LD solo con datos verificables. Mantener `sitemap.xml` al día al agregar o quitar artículos.
 8. **Privacidad.** Jamás incrustar claves, correos ajenos, datos de estudiantes ni resultados privados.
 9. **Datos del Ejercicio 1.** Mantener los CSV originales por fuente y unidad. No mezclar salarios de México con EE. UU., ni interpretar K-Means como predicción de contratación.
-10. **Proceso.** Leer el README, proponer un plan breve, modificar pocos archivos, ejecutar `python3 build.py` y describir qué cambió. Si una herramienta no está disponible, no fingir haberla usado.
+10. **Proceso.** Leer el README, proponer un plan breve, modificar pocos archivos, abrir `index.html` en el navegador para verificar y describir qué cambió. Si una herramienta no está disponible, no fingir haberla usado.
 
 ## Estructura
 
@@ -28,12 +28,12 @@ Este repositorio tiene **dos ejercicios vinculados**: análisis de carrera con C
 | `assets/img/` | Fotos WebP en 3 tamaños + favicon |
 | `robots.txt`, `sitemap.xml` | SEO; dominio de ejemplo `https://example.com` |
 | `_headers` | Cabeceras de seguridad de Cloudflare |
-| `build.py` | Genera `dist/` y valida privacidad, SEO y enlaces |
+| `.assetsignore` | Lo que Cloudflare no publica (formato `.gitignore`) |
 | `ejercicio_1/` | Análisis de carrera en Colab; nunca se publica |
 
 ## Criterios de aceptación
 
-- [ ] `python3 build.py` termina sin errores.
+- [ ] `.assetsignore` excluye `ejercicio_1/`, `README.md` y `AGENTS.md`.
 - [ ] Sin errores de consola ni enlaces rotos.
 - [ ] Navegación por teclado, celular y escritorio; modo oscuro legible.
 - [ ] Fotos con `alt` y WebP; sin fuentes ni scripts externos.

@@ -1,0 +1,12 @@
+# Archivos que Cloudflare NO publica (mismo formato que .gitignore).
+# Se publica la raíz tal cual: index.html, blog/, assets/, robots.txt, sitemap.xml y _headers.
+ejercicio_1/
+README.md
+AGENTS.md
+.git/
+.gitignore
+.assetsignore
+.DS_Store
+.wrangler/
+.playwright-mcp/
+dist/

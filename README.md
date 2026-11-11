@@ -8,9 +8,8 @@ Dos ejercicios que forman un solo proyecto: **investigar oportunidades profesion
 flowchart LR
     A["Ejercicio 1<br/>CSV + Google Colab"] --> B["Hipótesis de carrera<br/>plan_carrera_*.md"]
     B --> C["Ejercicio 2<br/>sección Rumbo del sitio"]
-    C --> D["python3 build.py"]
-    D --> E["dist/"]
-    E --> F["Cloudflare Pages"]
+    C --> D["git push a main"]
+    D --> E["Cloudflare<br/>publica el sitio"]
 ```
 
 ## Estructura del repositorio
@@ -28,7 +27,7 @@ TALLERDDD/
 ├── robots.txt          # SEO: permisos para buscadores + ubicación del sitemap
 ├── sitemap.xml         # SEO: lista de páginas del sitio
 ├── _headers            # Cabeceras de seguridad para Cloudflare
-├── build.py            # Copia solo lo público a dist/ y revisa enlaces
+├── .assetsignore       # Lo que Cloudflare NO publica (ejercicio_1/, README, etc.)
 ├── ejercicio_1/        # Análisis de carrera en Colab (no se publica)
 ├── README.md
 └── AGENTS.md           # Reglas para agentes de IA
@@ -48,7 +47,7 @@ Para publicar tu propio sitio necesitas tu copia: en GitHub usa **Fork** (o **Us
 
 - **VS Code**, **Git**, navegador y acceso a Google Colab.
 - Cuenta en **GitHub** o **GitLab** y cuenta gratuita de **Cloudflare**.
-- **Python 3** para generar el sitio. No hace falta Node, npm ni frameworks.
+- El sitio es HTML, CSS y JavaScript puro: no hace falta instalar nada ni compilar.
 - Opcional: un agente de programación en VS Code para practicar con `AGENTS.md`.
 
 ## Ejercicio 1 — Analítica de carrera con CSV y Colab
@@ -112,12 +111,9 @@ Busca `Mateo` en todo el proyecto (**Ctrl+Shift+F** o **Cmd+Shift+F** en VS Code
 
 Si un dato no lo puedes demostrar, quítalo. Una sección corta y verdadera vale más que una larga e inventada.
 
-### 4. Prueba y genera
+### 4. Prueba
 
-```bash
-python3 build.py                                   # genera dist/ y revisa enlaces
-python3 -m http.server 8000 --directory dist       # abre http://localhost:8000
-```
+Abre `index.html` con doble clic en tu navegador. No hay que compilar nada: lo que ves es lo que se publica.
 
 Revisa después de cada cambio:
 
@@ -144,23 +140,26 @@ Revisa después de cada cambio:
 | `robots.txt` | Raíz | Permite rastrear y apunta al sitemap |
 | `sitemap.xml` | Raíz | Lista de páginas del sitio |
 
-Los archivos usan el dominio de ejemplo `https://example.com`. Al definir la variable `PUBLIC_SITE_URL` (por ejemplo `https://tu-nombre.pages.dev`), `build.py` lo sustituye en todos lados.
+Los archivos usan el dominio de ejemplo `https://example.com`. Cuando tengas tu URL real, cámbiala en todo el proyecto con **Buscar y reemplazar** de VS Code (**Ctrl+Shift+H** o **Cmd+Shift+H**).
 
-**`noindex` está activo** en las tres páginas para que el ejemplo no aparezca en Google. Cuando el sitio tenga **solo tu información real**, borra la línea `<meta name="robots" content="noindex,nofollow">` de cada página y define `PUBLIC_SITE_URL`. Si quitas `noindex` sin definir el dominio, `build.py` se detiene con un aviso.
+**`noindex` está activo** en las tres páginas para que el ejemplo no aparezca en Google. Cuando el sitio tenga **solo tu información real** y tu dominio, borra la línea `<meta name="robots" content="noindex,nofollow">` de cada página.
 
-## Publicar en Cloudflare Pages
+## Publicar en Cloudflare
 
-Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git:
+Cloudflare Dashboard → **Workers & Pages** → **Create** → **Import a repository** → elige tu repo:
 
 | Ajuste | Valor |
 | --- | --- |
-| Framework preset | None |
-| Production branch | `main` |
-| Build command | `python3 build.py` |
-| Build output directory | `dist` |
-| Variable (opcional) | `PUBLIC_SITE_URL = https://tu-nombre.pages.dev` |
+| Project name | `tu-nombre` |
+| Build command | *(vacío)* |
+| Deploy command | `npx wrangler deploy --assets . --name tu-nombre --compatibility-date 2026-11-11` |
+| Preview command | `npx wrangler versions upload --assets . --name tu-nombre --compatibility-date 2026-11-11` |
 
-`build.py` copia **solo** `index.html`, `blog/`, `assets/`, `robots.txt`, `sitemap.xml` y `_headers`. Nunca publica `ejercicio_1/`, CSV, notebooks ni documentos `.md`, y se detiene si encuentra alguno en `dist/`.
+Usa el mismo nombre en **Project name** y en `--name`. Cada `git push` a `main` publica el sitio en `tu-nombre.<subdominio>.workers.dev`.
+
+Se publica la raíz tal cual, **excepto** lo que aparece en `.assetsignore`: `ejercicio_1/`, `README.md`, `AGENTS.md` y archivos ocultos. Si agregas carpetas privadas, añádelas ahí.
+
+**No dejes el deploy command por defecto** (`npx wrangler deploy` a secas): Cloudflare intentaría detectar el proyecto por su cuenta y crearía una rama con un pull request.
 
 ## Herramientas del taller
 
@@ -172,18 +171,18 @@ Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git
 | **[Graphify](https://marketplace.visualstudio.com/items?itemName=anytechiestudio.graphify-vscode)** | Ver relaciones entre archivos (`Graphify: Build Knowledge Graph`) |
 | **[Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)** | Leer este README con los diagramas renderizados |
 | **[Context7 MCP](https://github.com/upstash/context7-vscode-extension)** | Documentación actualizada para el agente |
-| **[Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/git-integration/)** | Hospedaje gratuito con despliegue desde Git |
+| **[Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/)** | Hospedaje gratuito del sitio estático, con despliegue desde Git |
 
 ## Al terminar el taller te llevas
 
 1. Una hipótesis de carrera basada en datos, con sus límites claros.
 2. Tu propio sitio profesional, con CV imprimible, listo para seguir mejorándolo.
 3. Un flujo de trabajo con IA: pedir un plan, revisar lo que propone y verificar antes de publicar.
-4. Opcional: tu sitio publicado en Cloudflare Pages, cuando tu contenido sea real.
+4. Opcional: tu sitio publicado en Cloudflare, cuando tu contenido sea real.
 
 ## Referencias
 
-- Cloudflare Pages, build configuration: <https://developers.cloudflare.com/pages/configuration/build-configuration/>
+- Cloudflare Workers, static assets: <https://developers.cloudflare.com/workers/static-assets/>
 - Google Search Central, SEO Starter Guide: <https://developers.google.com/search/docs/fundamentals/seo-starter-guide>
 - Google, sitemaps: <https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview>
 - MDN, Printing: <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Printing>
